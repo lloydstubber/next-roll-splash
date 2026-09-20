@@ -1,0 +1,32 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+---
+
+<SiteLayout>
+  <section class="hero">
+    <div class="hero-copy">
+      <h1 class="display">Forgot which roll was in your camera? Not us.</h1>
+      <p class="lede">next roll keeps track of the cameras you use, the rolls you load and the film you keep in the fridge.</p>
+      <a class="button" href="https://apps.apple.com" target="_blank" rel="noreferrer">Download the app</a>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <span>load</span><span>shoot</span><span>develop</span><span>scan</span><span>remember</span>
+  </div>
+
+  <section class="principles">
+    <div>
+      <h2 class="section-title">Everything you need<br />to remember.</h2>
+    </div>
+    <div class="principle-grid">
+      <article class="principle"><span class="principle-number">01</span><h3>Track loaded rolls</h3><p>See which roll is assigned to each camera.</p></article>
+      <article class="principle"><span class="principle-number">02</span><h3>Manage film stock</h3><p>Keep a record of your stock, quantities and expiry dates.</p></article>
+      <article class="principle"><span class="principle-number">03</span><h3>Update roll status</h3><p>Move rolls from loaded to shot, developed, scanned or archived.</p></article>
+      <article class="principle"><span class="principle-number">04</span><h3>Add useful details</h3><p>Save notes and push or pull settings with each roll.</p></article>
+    </div>
+  </section>
+
+</SiteLayout>

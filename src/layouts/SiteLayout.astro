@@ -1,0 +1,63 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'next roll | A quieter way to shoot film',
+  description = 'Keep your cameras, rolls and film stock in one calm, useful place.',
+} = Astro.props;
+const path = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/next-roll-mono.svg" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="wordmark" href="/" aria-label="next roll home">
+          <img src="/next-roll-whole.svg" alt="next roll" />
+        </a>
+        <nav aria-label="Main navigation">
+          <a class:list={{ active: path === '/' }} href="/">Home</a>
+          <a class:list={{ active: path === '/support/' }} href="/support/">Support</a>
+          <a class:list={{ active: path === '/privacy/' }} href="/privacy/">Privacy</a>
+        </nav>
+      </header>
+      <main><slot /></main>
+      <footer class="site-footer">
+        <span>A simple log for your cameras and rolls.</span>
+        <span>© {new Date().getFullYear()} next roll</span>
+      </footer>
+    </div>
+    <script>
+      import posthog from 'posthog-js';
+
+      const apiKey = import.meta.env.PUBLIC_POSTHOG_KEY;
+      const apiHost = import.meta.env.PUBLIC_POSTHOG_HOST || 'https://us.i.posthog.com';
+
+      if (apiKey) {
+        posthog.init(apiKey, {
+          api_host: apiHost,
+          autocapture: false,
+          capture_pageview: false,
+          capture_pageleave: false,
+          disable_session_recording: true,
+          person_profiles: 'never',
+          persistence: 'memory',
+        });
+        posthog.capture('website_page_view', { path: window.location.pathname });
+      }
+    </script>
+  </body>
+</html>
