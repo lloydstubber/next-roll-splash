@@ -1,13 +1,19 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
+
+const appStoreUrl = import.meta.env.PUBLIC_APP_STORE_URL;
 ---
 
 <SiteLayout>
   <section class="hero">
     <div class="hero-copy">
       <h1 class="display">Forgot which roll was in your camera? Not us.</h1>
-      <p class="lede">next roll keeps track of the cameras you use, the rolls you load and the film you keep in the fridge.</p>
-      <a class="button" href="https://apps.apple.com" target="_blank" rel="noreferrer">Download the app</a>
+      <p class="lede">Next Roll keeps track of the cameras you use, the rolls you load and the film you keep in the fridge.</p>
+      {appStoreUrl ? (
+        <a class="button" href={appStoreUrl} target="_blank" rel="noreferrer">Download the app</a>
+      ) : (
+        <span class="button button-unavailable">Coming soon on the App Store</span>
+      )}
     </div>
     <div class="hero-art" aria-hidden="true">
     </div>

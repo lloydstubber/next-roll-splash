@@ -7,7 +7,7 @@ interface Props {
 }
 
 const {
-  title = 'next roll | A quieter way to shoot film',
+  title = 'Next Roll | A simple film logging app',
   description = 'Keep your cameras, rolls and film stock in one calm, useful place.',
 } = Astro.props;
 const path = Astro.url.pathname;
@@ -25,8 +25,8 @@ const path = Astro.url.pathname;
   <body>
     <div class="site-shell">
       <header class="site-header">
-        <a class="wordmark" href="/" aria-label="next roll home">
-          <img src="/next-roll-whole.svg" alt="next roll" />
+        <a class="wordmark" href="/" aria-label="Next Roll home">
+          <img src="/next-roll-whole.svg" alt="Next Roll" />
         </a>
         <nav aria-label="Main navigation">
           <a class:list={{ active: path === '/' }} href="/">Home</a>
@@ -37,7 +37,7 @@ const path = Astro.url.pathname;
       <main><slot /></main>
       <footer class="site-footer">
         <span>A simple log for your cameras and rolls.</span>
-        <span>© {new Date().getFullYear()} next roll</span>
+        <span>© {new Date().getFullYear()} Next Roll</span>
       </footer>
     </div>
     <script>
